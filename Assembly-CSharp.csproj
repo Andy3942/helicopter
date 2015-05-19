@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Codes\Common\FloatSelf.cs" />
+     <Compile Include="Assets\Codes\Common\GestureHandle.cs" />
      <Compile Include="Assets\Codes\Common\SwingSelf.cs" />
      <Compile Include="Assets\Codes\Common\iTween.cs" />
      <Compile Include="Assets\Codes\GameManager.cs" />
@@ -54,6 +55,8 @@
      <Compile Include="Assets\Codes\GameState\GameRunState.cs" />
      <Compile Include="Assets\Codes\GameState\GameStartState.cs" />
      <Compile Include="Assets\Codes\Interface\IGameState.cs" />
+     <Compile Include="Assets\Codes\Manager\BackgroundManager.cs" />
+     <Compile Include="Assets\Codes\Manager\ScrollManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

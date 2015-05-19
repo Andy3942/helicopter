@@ -14,24 +14,47 @@ namespace Application
 	public class GameRunState:IGameState
 	{
 		private readonly GameManager _manager;
+		public int _stateInt = 0;
+		private int layerInt;
+		private ScrollManager _scrollManager;
+		private static GameRunState _instance;
+
+		public static GameRunState Instance
+		{
+			get{return _instance;}
+
+		}
+
 		public GameRunState (GameManager manager)
 		{
 			this._manager = manager;
-			Debug.Log ("Enter Run");
+			manager._gesture.gameObject.SetActive (true);
+			_scrollManager = GameObject.FindObjectOfType<ScrollManager> ();
+			_instance = this;
 		}
 
 		public override void Update()
 		{
-			if(Input.GetKeyDown(KeyCode.A))
+			if (_stateInt == 1 && Input.GetMouseButtonDown (0)) 
 			{
-				SwitchNext();
+				Vector3 mouseVector3 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				RaycastHit2D hit;
+				hit = Physics2D.Raycast(Camera.main.transform.position, mouseVector3, 100, 1 << layerInt);
+				if(hit.collider != null)
+				{
+
+				}
 			}
-			Debug.Log("In Run");
 		}
 		
 		public override void SwitchNext()
 		{
 			_manager._CurrentState = new GameEndState (_manager);
+		}
+
+		public void PrepareGameStart()
+		{
+			_scrollManager.StartMove ();
 		}
 	}
 }
